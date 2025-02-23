@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Jim's Space Launch Tracker
 
-## Getting Started
+Welcome to Jim's Space Launch Tracker! 🛸 This real-time tracker keeps you updated on all the latest rocket launches, making sure you never miss a moment of space exploration.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🎯 **Real-time Launch Tracking**: Stay up-to-date with upcoming launches from around the world
+- ⏰ **Live Countdown Timer**: Watch the excitement build with precise countdowns to each launch
+- 🌅 **Sunrise/Sunset Indicators**: Special highlighting for launches during golden hours
+- 🎬 **Live Webcast Links**: Direct links to YouTube and X (Twitter) broadcasts when available
+- 🌍 **Global Launch Sites**: Filter launches by location with country codes
+- 🚀 **Rocket Types**: Filter by your favorite rocket families
+- 📊 **Success Probability**: Know the mission's chances of success
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ⚛️ Next.js 13+ (App Router)
+- 📘 TypeScript
+- 🎨 Tailwind CSS
+- 🎯 shadcn/ui components
+- 🚀 Launch Library 2 API
+- 💾 Local Storage for preferences
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/acossta/jims-space-launch-tacker.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the magic! 🎉
 
-## Deploy on Vercel
+## 🎯 Smart Filters
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 📅 Month selection (always starts from current month)
+- 🌍 Launch site locations
+- 🚀 Rocket types and families
+- 📊 Success probability ranges:
+  - High (>80%)
+  - Medium (50-80%)
+  - Low (<50%)
+  - Unknown
+- 🔄 Launch status updates
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🌟 Special Features
+
+- 🌅 Launches near sunrise/sunset get special highlighting
+- ⚡ Real-time countdown updates
+- 💾 Your filter preferences are automatically saved
+- 📱 Fully responsive design
+- 🔄 Automatic data refresh
+
+## 🤝 Contributing
+
+Feel free to contribute to this project! Whether it's bug fixes, new features, or improvements to the documentation, all contributions are welcome! 🙌
+
+## 📝 License
+
+This project is open source and available under the MIT license.
+
+## 🙏 Acknowledgments
+
+- Powered by the [Launch Library 2 API](https://thespacedevs.com/llapi)
+- Built with love for space exploration! 🚀
+
+---
+
+Made with 💖 for space enthusiasts everywhere! Don't forget to ⭐ this repo if you found it helpful!
