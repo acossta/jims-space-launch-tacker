@@ -66,20 +66,13 @@ export function LaunchesList() {
     setError(null);
 
     try {
-      console.log('Loading page:', currentPage, 'for month:', selectedMonth);
       const response = await getUpcomingLaunches(currentPage, 25, selectedMonth);
-      console.log('Got response with', response.results.length, 'launches');
 
       setLaunches(prevLaunches => {
-        // If resetting the list, don't use previous launches
         const existingLaunches = resetList ? [] : prevLaunches;
-
-        // Create a map of all launches to remove duplicates
         const launchesMap = new Map(existingLaunches.map(launch => [launch.id, launch]));
 
-        // Filter launches based on selected filters
         const filteredResults = response.results.filter(launch => {
-          // Location filter
           if (selectedLocation) {
             const [locationName, countryCode] = selectedLocation.split('|');
             if (launch.pad.location.name !== locationName ||
@@ -88,12 +81,10 @@ export function LaunchesList() {
             }
           }
 
-          // Rocket filter
           if (selectedRocket && launch.rocket.configuration.id !== selectedRocket) {
             return false;
           }
 
-          // Probability filter
           if (selectedProbability) {
             const probability = launch.probability;
             switch (selectedProbability) {
@@ -112,7 +103,6 @@ export function LaunchesList() {
             }
           }
 
-          // Status filter
           if (selectedStatus && launch.status.name !== selectedStatus) {
             return false;
           }
@@ -124,9 +114,7 @@ export function LaunchesList() {
           launchesMap.set(launch.id, launch);
         });
 
-        // Update available filters on first load
         if (resetList) {
-          // Update locations
           const locations = new Map(
             response.results.map(launch => [
               `${launch.pad.location.name}|${launch.pad.location.country_code}`,
@@ -135,7 +123,6 @@ export function LaunchesList() {
           );
           setAvailableLocations(Array.from(locations.values()));
 
-          // Update rockets
           const rockets = new Map(
             response.results.map(launch => [
               launch.rocket.configuration.id,
@@ -148,7 +135,6 @@ export function LaunchesList() {
           );
           setAvailableRockets(Array.from(rockets.values()));
 
-          // Update statuses
           const statuses = new Map(
             response.results.map(launch => [
               launch.status.name,
@@ -164,7 +150,6 @@ export function LaunchesList() {
       setHasMore(!!response.next);
       setPage(currentPage + 1);
 
-      // Show error if no launches found on first page
       if (response.results.length === 0 && currentPage === 1) {
         setError('No launches found for the selected filters');
         setHasMore(false);
@@ -176,14 +161,23 @@ export function LaunchesList() {
     } finally {
       setLoading(false);
     }
-  }, [selectedMonth, selectedLocation, selectedRocket, selectedProbability, selectedStatus, loading, hasMore, page]);
+  }, [
+    loading,
+    hasMore,
+    page,
+    selectedMonth,
+    selectedLocation,
+    selectedRocket,
+    selectedProbability,
+    selectedStatus
+  ]);
 
   // Reset and load launches when any filter changes
   useEffect(() => {
     setPage(1);
     setHasMore(true);
     loadMoreLaunches(1, true);
-  }, [selectedMonth, selectedLocation, selectedRocket, selectedProbability, selectedStatus]);
+  }, [loadMoreLaunches]);
 
   // Load more launches when scrolling
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { Launch, LaunchesResponse } from '@/types/launches';
+import type { LaunchesResponse } from '@/types/launches';
 
 // Use the free tier endpoint which has a higher rate limit
 const API_URL = 'https://lldev.thespacedevs.com/2.2.0';
@@ -37,7 +37,11 @@ export async function getUpcomingLaunches(page: number = 1, limit: number = 25, 
     });
 
     // Transform video URLs if they exist
-    const transformedResults = data.results.map((launch: any) => {
+    const transformedResults = data.results.map((launch: {
+      name: string;
+      vidURLs?: string[];
+      video_url?: string | null;
+    }) => {
       let youtube_id = null;
       let twitter_id = null;
 

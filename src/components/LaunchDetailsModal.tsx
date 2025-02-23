@@ -6,6 +6,7 @@ import { formatDate } from '@/utils/date';
 import { Countdown } from './Countdown';
 import * as Dialog from '@radix-ui/react-dialog';
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 interface LaunchDetailsModalProps {
   launch: Launch;
@@ -30,11 +31,13 @@ export function LaunchDetailsModal({ launch, isOpen, onClose }: LaunchDetailsMod
             {/* Left column */}
             <div className="space-y-4">
               {launch.image && (
-                <div className="aspect-video w-full">
-                  <img
+                <div className="aspect-video w-full relative">
+                  <Image
                     src={launch.image}
                     alt={launch.name}
-                    className="w-full h-full object-cover rounded-lg shadow-md"
+                    fill
+                    className="object-cover rounded-lg shadow-md"
+                    sizes="(max-width: 768px) 90vw, 400px"
                   />
                 </div>
               )}

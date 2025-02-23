@@ -7,6 +7,7 @@ import { Countdown } from './Countdown';
 import { LaunchDetailsModal } from './LaunchDetailsModal';
 import { isNearSunriseOrSunset } from '@/lib/sun-utils';
 import { Sunrise, Sunset } from 'lucide-react';
+import Image from 'next/image';
 
 interface LaunchCardProps {
   launch: Launch;
@@ -87,11 +88,13 @@ export function LaunchCard({ launch }: LaunchCardProps) {
             </div>
           </div>
           {launch.image && (
-            <div className="w-24 h-24 flex-shrink-0">
-              <img
+            <div className="w-24 h-24 flex-shrink-0 relative">
+              <Image
                 src={launch.image}
                 alt={launch.name}
-                className="w-full h-full object-cover rounded"
+                fill
+                className="object-cover rounded"
+                sizes="96px"
               />
             </div>
           )}

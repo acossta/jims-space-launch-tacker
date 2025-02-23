@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] min-h-screen p-8 pb-20 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <header className="text-center">
-        <h1 className="text-3xl font-bold mb-2">Jim's Space Launch Tracker</h1>
+        <h1 className="text-3xl font-bold mb-2">Jim&apos;s Space Launch Tracker</h1>
         <p className="text-gray-600">Track upcoming SpaceX launches in real-time</p>
       </header>
 
@@ -16,7 +16,7 @@ export default function Home() {
       </main>
 
       <footer className="text-center text-gray-600">
-        Jim's Space Launch Tracker
+        Jim&apos;s Space Launch Tracker
       </footer>
     </div>
   );
